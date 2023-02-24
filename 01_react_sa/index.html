@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--jquery cdn-->
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+    <title>React S.A - 회원가입 신청서</title>
+
+
+</head>
+
+<body>
+    <form onsubmit="validateForm()">
+        <div>
+            <label for="name">First name :</label><br/>
+            <input type="text" name="first-name" id="first-name" required>
+        </div>
+        <div>
+            <label for="name">Last name :</label><br/>
+            <input type="text" name="last-name" id="last-name" required>
+        </div>
+        <div>
+            <label for="email">Email :</label><br/>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="gender">Gender :</label>
+            <input type="radio" name="gender" value="M" required>Male
+            <input type="radio" name="gender" value="F">Female
+        </div>
+        <div>
+            <label for="favorite">Favorite :</label>
+            <input type="checkbox" name="html" value="html" id="html">HTML
+            <input type="checkbox" name="java" value="java" id="java">JAVA
+            <input type="checkbox" name="javascript" value="javascript" id="javascript">JavaScript
+        </div>
+        <div>
+            <label for="browser">Browser :</label>
+            <select name="browser" id="browser" required>
+                <option value="">선택해주세요</option>
+                <option value="chrome">크롬</option>
+                <option value="safari">사파리</option>
+                <option value="firefox">파이어폭스</option>
+            </select>
+        </div>
+        <div>
+            <label for="birthday">Birthday :</label>
+            <input type="date" id="date" required>
+        </div>
+        <!--form 안에서 btn은 기본값이 submit-->
+        <button type="submit">제출</button>
+    </form>
+
+    <script>
+        let firstName = document.querySelector("#first-name")
+        let lastName = document.querySelector("#last-name")
+        let email = document.querySelector("#email")
+        let html = document.querySelector("#html")
+        let java = document.querySelector("#java")
+        let javascript = document.querySelector("#javascript")
+
+        function validateForm(event){
+        if(firstName.value !== '' && lastName.value !== '' && email.value !== '') {
+            if($(javascript).is(":checked") === true || $(html).is(":checked") === true || $(java).is(":checked") === true) {
+                alert('제출 완료!')
+            } else {
+                event.preventDefault();
+                alert('Favorite을 체크해주세요')
+                
+            }
+        }
+        }
+//event.preventDefault(); 문제
+    </script>
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>
