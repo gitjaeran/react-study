@@ -1,0 +1,77 @@
+.app {
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  font-weight: bold;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+
+  border: 1px solid rgba(128, 128, 128, 0.117);
+  border-radius: 10px;
+}
+
+.input-form {
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+
+  background-color: rgba(128, 128, 128, 0.117);
+  border-radius: 10px;
+}
+
+.input-todo {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.input-todo > input {
+  width: 250px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.add-btn {
+  font-weight: bold;
+  color: rgb(232, 230, 230);
+  background-color: rgb(232, 71, 98);
+  
+  border: none;
+  border-radius: 10px;
+  padding: 12px 40px;
+}
+
+.todo-container {
+  padding: 20px;
+}
+
+.todos-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.todos-component {
+  width: 300px;
+  height: 150px;
+  align-items: center;
+  padding: 20px;
+  margin-right: 30px;
+
+  border: 3px solid rgba(232, 71, 98, 0.27);
+  border-radius: 10px;
+}
+
+.todos-component > div {
+  
+}
