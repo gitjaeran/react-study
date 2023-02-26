@@ -1,4 +1,9 @@
 # MY TODOLIST
+<img src="./src/img/react-mytodolist-1.jpg">
+
+<br/>
+<br/>
+
 ## 1. 소개
 
 **목적**
