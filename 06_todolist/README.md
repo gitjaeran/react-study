@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# MY TODOLIST
+## 1. 소개
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**목적**
 
-## Available Scripts
+useState, props, map(), filter() 연습
 
-In the project directory, you can run:
+<br/>
 
-### `yarn start`
+**기능**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- todolist 추가, 삭제, 완료 및 되돌리기
+- todolist 추가시 Working에, 완료하기 클릭시 Done에 렌더링
+- 되돌리기 클릭시 다시 Working에 렌더링
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br/>
+<br/>
+<br/>
 
-### `yarn test`
+## 2. Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+MY TODOLIST를 만들기 위해 분리한 Component 구조:
 
-### `yarn build`
+<br/>
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `1) Header`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+제목인 MY TODOLIST와 연습 대상인 React를 알 수 있도록 head 추가
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `yarn eject`
+### `2) inputForm`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+제목, 내용을 입력할 수 있는 input과 해당 값을 받아 새로운 Todolist를 추가할 수 있는 button
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `3) TodoContainer`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Todolist의 상태에 따라 Working과 Done으로 나누어져 있는 공간을 감싸고 있는 Container
 
-## Learn More
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `4) TodoWorking`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+list가 추가되면 자동으로 Working에 렌더링되며, Done에 있는 list의 '되돌리기' 버튼을 클릭해도 상태 관리에 따라 Working에 렌더링
 
-### Code Splitting
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### `5) TodoDone`
 
-### Analyzing the Bundle Size
+Working에 있는 list의 '완료하기' 버튼 클릭시 Done으로 렌더링
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br/>
+<br/>
+<br/>
 
-### Making a Progressive Web App
+## 3. props
+부모 컴포넌트: app.jsx<br/>
+자식 컴포넌트: InputForm.jsx , TodoContainer.jsx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br/>
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+부모 컴포넌트: TodoContainer.jsx<br/>
+자식 컴포넌트: TodoWorking.jsx , TodoDone.jsx
