@@ -39,11 +39,13 @@ function TodoWorking({todoList, setTodoList}) {
            return (
             list.isDone === false && (
               <div className='todos-component' key={list.id}>
-                <div>{list.title}</div>
-                <div>{list.contents}</div>
-                <div>
-                  <button onClick={() => clickRemoveBtn(list.id)}>삭제하기</button>
-                  <button onClick={() => clickIsDoneTrueBtn(list.id)}>완료하기</button>
+                <div className='list-box'>
+                  <div className='list-box-title'>{list.title}</div>
+                  <div>{list.contents}</div>
+                </div>
+                <div className='btn-box'>
+                  <button onClick={() => clickRemoveBtn(list.id)} className="delete-btn">삭제하기</button>
+                  <button onClick={() => clickIsDoneTrueBtn(list.id)} className="isTrue-btn">완료하기</button>
                 </div>
               </div>
             )

@@ -28,11 +28,13 @@ function TodoDone({todoList, setTodoList}) {
           return (
             list.isDone === true && (
             <div className='todos-component' key={list.id}>
-              <div>{list.title}</div>
-              <div>{list.contents}</div>
-              <div>
-                <button onClick={() => clickRemoveBtn(list.id)}>삭제하기</button>
-                <button onClick={() => clickIsDoneFalseBtn(list.id)}>되돌리기</button>
+              <div className='list-box'>
+                <div className='list-box-title'>{list.title}</div>
+                <div>{list.contents}</div>
+              </div>
+              <div className='btn-box'>
+                <button onClick={() => clickRemoveBtn(list.id)} className="delete-btn">삭제하기</button>
+                <button onClick={() => clickIsDoneFalseBtn(list.id)} className="isFalse-btn">되돌리기</button>
               </div>
             </div>
             )
