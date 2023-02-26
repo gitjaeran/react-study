@@ -15,12 +15,20 @@ const InputForm = ({todoList, setTodoList}) => {
   }
 
   const clickAddBtn = (event) => {
-    const newTodo = {
+    let newTodo = {};
+    if(!title || !contents) {
+      alert('제목과 내용을 입력해주세요!')
+    } else {
+      newTodo = {
       id: todoList.length + 1,
       title,
       contents,
       isDone: false,
     }
+    setTitle('')
+    setContents('')
+  }
+
     setTodoList([...todoList, newTodo])
   }
 
