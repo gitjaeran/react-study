@@ -20,7 +20,7 @@ const InputForm = ({todoList, setTodoList}) => {
       alert('제목과 내용을 입력해주세요!')
     } else {
       newTodo = {
-      id: todoList.length + 1,
+      id: new Date().getTime().toString(16),
       title,
       contents,
       isDone: false,
@@ -30,6 +30,7 @@ const InputForm = ({todoList, setTodoList}) => {
   }
 
     setTodoList([...todoList, newTodo])
+    console.log(newTodo.id)
   }
 
   return (
