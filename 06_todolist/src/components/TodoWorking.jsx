@@ -1,19 +1,13 @@
 import React from 'react'
-import { useState } from 'react'
 
 function TodoWorking({todoList, setTodoList}) {
-
   //삭제
   const clickRemoveBtn = (id) => {
-    // [
-    //   {id: 1, title: "React 공부하기", contents: "React 입문 강의 듣기", isDone: false},
-    //   {id: 2, title: "React 과제하기", contents: "React로 TodoList 만들기", isDone: false},
-    // ]
     const removedList = todoList.filter(list => list.id !== id)
     setTodoList(removedList)
   }
 
-  //완료 isDone false -> true
+//  완료 isDone false -> true
   const clickIsDoneTrueBtn = (id) => {
     const isDoneTrueList = todoList.map(list => {
       if(list.id === id) {
@@ -35,8 +29,7 @@ function TodoWorking({todoList, setTodoList}) {
         <div className='todos-wrap'>
         {
         todoList.map(list => {
-          // list.isDone === false
-           return (
+          return (
             list.isDone === false && (
               <div className='todos-component' key={list.id}>
                 <div className='list-box'>
