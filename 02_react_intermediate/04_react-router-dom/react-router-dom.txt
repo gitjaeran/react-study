@@ -1,0 +1,17 @@
+1. 페이지(우리는 원래 단일 페이지) 컴포넌트 작성 -> 다중 페이지
+2. Router.js 파일 생성. router 구성하는 설정 코드 작성
+    (ex: redux 할 때도 설정 파일을 만들어 주입했음)
+3. App.jsx import 하고(2번) 적용: 주입
+4. 페이지 이동 테스트
+
+* react-router-dom 전용 hook: 사용도 높은 hook
+- useNavigate
+- useLocation
+- useParams
+
+** hook은 아니지만 꼭 알아야 할 API
+- Link
+
+*** Dynamic Route
+동적 라우팅이라고도 함.
+path에 유동적인 값을 넣어서 특정 페이지로 이동하게끔 구현하는 방법.
