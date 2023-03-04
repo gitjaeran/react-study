@@ -20,7 +20,6 @@ export const deleteTodo = id => {
 };
 
 export const doneTodo = id => {
-  //   console.log(id, isDone);
   return {
     type: DONE_TODO,
     payload: id,
@@ -52,17 +51,12 @@ const initialState = [
 
 //리듀서: state에 변화를 일으키는 함수(action의 type에 따라 변경)
 const data = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case CREATE_TODO:
       return [...state, action.payload];
     case DELETE_TODO:
       return state.filter(list => list.id !== action.payload);
     case DONE_TODO:
-      console.log(action.payload);
-      //   console.log(state);
-      //해당 list.id가 맞다면
-      //그 list의 isDone을 true로 변경하고, 변경되지 않은 다른 list는 그대로.
       const isDoneTrue = state.map(list => {
         if (list.id === action.payload) {
           return (list = { ...list, isDone: true });

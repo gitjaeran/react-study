@@ -36,7 +36,7 @@ function CreateTodo() {
           onClick={() => {
             dispatch(
               createTodo({
-                id: new Date().getTime().toString(16),
+                id: Date.now(),
                 title,
                 contents,
                 isDone: false,

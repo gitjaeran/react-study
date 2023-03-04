@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   deleteTodo,
   doneTodo,
@@ -20,6 +21,7 @@ function TodoListContainer() {
             list.isDone === false && (
               <div key={list.id}>
                 <div>
+                  <Link to={`/todolistcontainer/${list.id}`}>상세페이지</Link>
                   <div>{list.title}</div>
                   <div>{list.contents}</div>
                 </div>
@@ -33,7 +35,6 @@ function TodoListContainer() {
                   </button>
                   <button
                     onClick={() => {
-                      //   console.log(list.id, list.isDone);
                       dispatch(doneTodo(list.id, list.isDone));
                     }}
                   >
@@ -54,6 +55,7 @@ function TodoListContainer() {
             list.isDone === true && (
               <div key={list.id}>
                 <div>
+                  <Link to={`/todolistcontainer/${list.id}`}>상세페이지</Link>
                   <div>{list.title}</div>
                   <div>{list.contents}</div>
                 </div>
