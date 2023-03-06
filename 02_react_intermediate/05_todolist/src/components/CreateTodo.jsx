@@ -3,30 +3,50 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { createTodo } from "../redux/config/modules/todoList";
 
-const AddContainer = styled.div`
+const AddContainer = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 25px;
   background-color: rgba(128, 128, 128, 0.117);
   border-radius: 10px;
 `;
 
 const AddInputBox = styled.div`
+  font-size: large;
   display: flex;
   align-items: center;
-
-  gap: 15px;
+  gap: 25px;
 `;
 
 const AddInput = styled.div`
-  width: 250px;
-  padding: 10px;
   border: none;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
 `;
 
-const AddBtn = styled.div`
+const TitleInput = styled.input`
+  font-size: large;
+  width: 250px;
+  height: 30px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+`;
+
+const ContentsInput = styled.input`
+  font-size: large;
+  width: 350px;
+  height: 30px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+`;
+
+const AddBtn = styled.button`
+  font-size: 15px;
   font-weight: bold;
   color: rgb(232, 230, 230);
 
@@ -50,7 +70,8 @@ function CreateTodo() {
       <AddInputBox>
         <AddInput>
           <label>제목</label>
-          <input
+          <TitleInput
+            maxLength="15"
             value={title}
             onChange={e => {
               setTitle(e.target.value);
@@ -59,7 +80,8 @@ function CreateTodo() {
         </AddInput>
         <AddInput>
           <label>내용</label>
-          <input
+          <ContentsInput
+            maxLength="57"
             value={contents}
             onChange={e => {
               setContents(e.target.value);
@@ -70,17 +92,22 @@ function CreateTodo() {
 
       <div>
         <AddBtn
-          onClick={() => {
-            dispatch(
-              createTodo({
-                id: Date.now(),
-                title,
-                contents,
-                isDone: false,
-              })
-            ); //dispatch
-            setTitle("");
-            setContents("");
+          onClick={e => {
+            if (!title || !contents) {
+              alert("제목과 내용을 작성해주세요!");
+            } else {
+              dispatch(
+                createTodo({
+                  id: Date.now(),
+                  title,
+                  contents,
+                  isDone: false,
+                })
+              ); //dispatch
+              setTitle("");
+              setContents("");
+            }
+            e.preventDefault();
           }}
         >
           추가하기

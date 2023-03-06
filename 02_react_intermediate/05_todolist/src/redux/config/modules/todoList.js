@@ -44,7 +44,7 @@ const initialState = [
   {
     id: 2,
     title: "Redux 공부하기",
-    contents: "Redux로 TodoList 전역 상태 관리하기",
+    contents: "Redux로 TodoList 전역 상태 관리하고 Styled-components로 꾸미기",
     isDone: true,
   },
 ];

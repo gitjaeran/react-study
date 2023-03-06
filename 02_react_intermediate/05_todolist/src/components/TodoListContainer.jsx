@@ -9,15 +9,29 @@ import {
 } from "../redux/config/modules/todoList";
 
 const LayoutBox = styled.div`
+  @font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+      format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  font-family: "Pretendard-Regular";
   padding: 20px;
 `;
 
+const H2 = styled.h2`
+  font-family: "NEXON Lv1 Gothic OTF";
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 15px;
+`;
 const TodoWrap = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
   row-gap: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 `;
 
 const TodoComponent = styled.div`
@@ -27,8 +41,7 @@ const TodoComponent = styled.div`
   width: 300px;
   height: 170px;
 
-  padding: 23px;
-  margin-right: 10px;
+  padding: 25px;
 
   border: 4px solid rgba(232, 71, 98, 0.27);
   border-radius: 10px;
@@ -38,22 +51,32 @@ const TodoComponent = styled.div`
   justify-content: space-between;
 `;
 
+const DetailTodoLink = styled(Link)`
+  text-decoration: none;
+  color: gray;
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const ListBox = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
-`;
-
-const DetailTodo = styled.div`
-  font-size: 15px;
-  padding-bottom: 10px;
+  word-break: break-all;
+  height: 100px;
 `;
 
 const TodoTitle = styled.div`
-  font-size: 20px;
+  font-size: 23px;
   font-weight: bold;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 `;
+
+const TodoContents = styled.div`
+  font-size: 18px;
+  line-height: 1.2;
+`;
+
 const BtnBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -70,6 +93,7 @@ const Btn = styled.button`
 
   cursor: pointer;
 `;
+
 function TodoListContainer() {
   const todoList = useSelector(state => state.data);
   const dispatch = useDispatch();
@@ -78,20 +102,18 @@ function TodoListContainer() {
     <LayoutBox>
       {/* working */}
       <div>
-        <h2>Working</h2>
+        <H2>🎁 Working</H2>
         <TodoWrap>
           {todoList.map(list => {
             return (
               list.isDone === false && (
                 <TodoComponent key={list.id}>
+                  <DetailTodoLink to={`/todolistcontainer/${list.id}`}>
+                    상세페이지
+                  </DetailTodoLink>
                   <ListBox>
-                    <DetailTodo>
-                      <Link to={`/todolistcontainer/${list.id}`}>
-                        상세페이지
-                      </Link>
-                    </DetailTodo>
                     <TodoTitle>{list.title}</TodoTitle>
-                    <div>{list.contents}</div>
+                    <TodoContents>{list.contents}</TodoContents>
                   </ListBox>
                   <BtnBox>
                     <Btn
@@ -120,21 +142,19 @@ function TodoListContainer() {
 
       {/* Done */}
       <div>
-        <h2>Done</h2>
+        <H2>🎉 Done</H2>
         <TodoWrap>
           {todoList.map(list => {
             return (
               list.isDone === true && (
                 <TodoComponent key={list.id}>
-                  <div>
-                    <DetailTodo>
-                      <Link to={`/todolistcontainer/${list.id}`}>
-                        상세페이지
-                      </Link>
-                    </DetailTodo>
+                  <DetailTodoLink to={`/todolistcontainer/${list.id}`}>
+                    상세페이지
+                  </DetailTodoLink>
+                  <ListBox>
                     <TodoTitle>{list.title}</TodoTitle>
-                    <div>{list.contents}</div>
-                  </div>
+                    <TodoContents>{list.contents}</TodoContents>
+                  </ListBox>
                   <BtnBox>
                     <Btn
                       borderColor="rgba(197, 13, 19, 0.414)"
